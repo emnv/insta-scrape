@@ -1,7 +1,8 @@
 <section class="space-y-6">
-  
+
   <div class="relative overflow-x-auto shadow-md sm:rounded-lg">
-      <table class="w-full text-sm text-left text-gray-500 dark:text-gray-400">
+
+      <table class="w-full text-sm text-left text-gray-500 dark:text-gray-400 m-5">
           <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
               <tr>
                   <th scope="col" class="px-6 py-2">
@@ -9,6 +10,9 @@
                   </th>
                   <th scope="col" class="px-6 py-2">
                       Age
+                  </th>
+                  <th scope="col" class="px-6 py-2">
+                      Gender
                   </th>
                   <th scope="col" class="px-6 py-2">
                       Race
@@ -28,6 +32,9 @@
                       {{ $data->age == null ? "-" : $data->age }}
                     </td>
                     <td class="px-6 py-4">
+                      {{ $data->gender == null ? "-" : $data->gender }}
+                    </td>
+                    <td class="px-6 py-4">
                       {{ $data->race == null ? "-" : $data->race }}
                     </td>
                     <td class="px-6 py-4">
@@ -37,7 +44,7 @@
               @endforeach
           </tbody>
       </table>
-      <nav class="flex items-center justify-between pt-4" aria-label="Table navigation">
+      <nav class="flex items-center justify-between p-4" aria-label="Table navigation">
           <span class="text-sm font-normal text-gray-500 dark:text-gray-400">Showing <span class="font-semibold text-gray-900 dark:text-white">1-10</span> of <span class="font-semibold text-gray-900 dark:text-white">1000</span></span>
           <ul class="inline-flex items-center -space-x-px">
               <li>

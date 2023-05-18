@@ -1,5 +1,6 @@
 <?php
 
+use Illuminate\Http\Request;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\UsernamesDataController;
 use Illuminate\Support\Facades\Route;
@@ -20,7 +21,7 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/dashboard', function () {
+Route::get('/dashboard', function (Request $request) {
     $listUsernamesData = ListUsernamesData::get();
 
     return view('dashboard', compact('listUsernamesData'));
@@ -33,5 +34,6 @@ Route::middleware('auth')->group(function () {
 });
 
 Route::post('/data', [UsernamesDataController::class, 'upload'])->name('UsernamesData.upload');
+Route::get('/data/filter', [UsernamesDataController::class, 'filter'])->name('UsernamesData.filter');
 
 require __DIR__.'/auth.php';

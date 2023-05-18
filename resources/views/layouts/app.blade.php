@@ -32,5 +32,36 @@
                 {{ $slot }}
             </main>
         </div>
+
+        <script>
+            var ageFilter = document.getElementById('ageFilter');
+            var genderFilter = document.getElementById('genderFilter');
+            var raceFilter = document.getElementById('raceFilter');
+            var listUsernamesDataWrap = document.getElementById('listUserNamesWrap');
+
+            ageFilter.addEventListener('change', function () {
+                dataFilter();
+            })
+            
+            genderFilter.addEventListener('change', function () {
+                dataFilter();
+            })
+
+            raceFilter.addEventListener('change', function () {
+                dataFilter();
+            })
+
+            function dataFilter() {
+                var age = ageFilter.value;
+                var gender = genderFilter.value;
+                var race = raceFilter.value;
+
+                fetch('/data/filter?age=' + age + '&gender=' + gender + '&race=' +race)
+                    .then(response => response.text())
+                    .then(partial => {
+                        listUsernamesDataWrap.innerHTML = partial;
+                    })
+            }
+        </script>
     </body>
 </html>

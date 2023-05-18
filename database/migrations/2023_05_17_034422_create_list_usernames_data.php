@@ -15,6 +15,7 @@ return new class extends Migration
             $table->id();
             $table->string('username');
             $table->integer('age')->nullable();
+            $table->string('gender')->nullable();
             $table->string('race')->nullable();
             $table->double('attractive')->nullable();
             $table->timestamps();
